@@ -10,17 +10,20 @@ export default class IndecisionApp extends React.Component {
     options: [],
     selectedOption: undefined
   };
+  // Delete all options
   handleDeleteOptions = () => {
     this.setState(() => ({ options: [] }));
   };
   handleClearSelectedOption = () => {
     this.setState(() => ({ selectedOption: undefined }));
   }
-  handleDeleteOption = (optionToRemove) => {
+  // Delete single option and finding update option to remove with filter method who create new array that pass the test that there is a option
+  handleDeleteOption = (optionToRemove) => {  
     this.setState((prevState) => ({
       options: prevState.options.filter((option) => optionToRemove !== option)
     }));
   };
+  // This will allow us to random pick what should I do
   handlePick = () => {
     const randomNum = Math.floor(Math.random() * this.state.options.length);
     const option = this.state.options[randomNum];
@@ -28,6 +31,7 @@ export default class IndecisionApp extends React.Component {
       selectedOption: option
     }));
   };
+  //  This will allow us to add an option in our app but if there is no option it showed us error msg, and if exist the same option, it will show us the error
   handleAddOption = (option) => {
     if (!option) {
       return 'Enter valid value to add item';
@@ -36,9 +40,10 @@ export default class IndecisionApp extends React.Component {
     }
 
     this.setState((prevState) => ({
-      options: prevState.options.concat(option)
+      options: prevState.options.concat(option) // // concat is a method to merge two or more arrays and return new array
     }));
   };
+  // Saving data in local storage
   componentDidMount() {
     try {
       const json = localStorage.getItem('options');
@@ -82,8 +87,11 @@ export default class IndecisionApp extends React.Component {
       />
         </div>
         </div>
+        
+      
         <OptionModal
-          selectedOption={this.state.selectedOption}
+          selectedOption={this.state.selectedOption} 
+          // calling selectedOption as OptionModal and then is showed up on screen, handleClearSelectedOption is called to disappear from the screen when is clicked on button in OptionModal.js
           handleClearSelectedOption={this.handleClearSelectedOption}
         />
       </div>

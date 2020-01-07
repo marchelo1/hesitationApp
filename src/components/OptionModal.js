@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 
+// The only required prop for the modal object is isOpen, which indicates whether the modal should be displayed, and closeTimeoutMS 200 is millisecond to close modal, className modal is for styling
 const OptionModal = (props) => (
   <Modal
     isOpen={!!props.selectedOption}

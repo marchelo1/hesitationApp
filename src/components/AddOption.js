@@ -4,9 +4,10 @@ export default class AddOption extends React.Component {
   state = {
     error: undefined
   };
+  // Prevent to website refresh with e.preventDefault();
   handleAddOption = (e) => {
     e.preventDefault();
-    const option = e.target.elements.option.value.trim();
+    const option = e.target.elements.option.value.trim(); // Targeting form element to do something and trim will delete all empty spaces
     const error = this.props.handleAddOption(option);
 
     this.setState(() => ({ error }));

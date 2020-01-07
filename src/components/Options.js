@@ -1,6 +1,7 @@
 import React from 'react';
 import Option from './Option';
 
+// Button action for remove all and have props for remove single option
 const Options = (props) => (
 <div>
   <div className="widget-header">

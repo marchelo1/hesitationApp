@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Button for remove Single option with handleDeleteOption method
 const Option = (props) => (
   <div className="option"> 
   <p className="option__text">{props.count}. {props.optionText}</p>
